@@ -13,7 +13,6 @@ let searchKey = ""
 let backupSearchKey = "" //to store most recent search key that was entered
 let pages = 0
 let loadMore = false //boolean indicating if user pressed the show more button
-let trendingAPIUrl = `api.giphy.com/v1/gifs/trending?api_key=${api_key}&rating=${rating}&offset=${offset}&limit=${limit}`
 
 FormElem.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -43,18 +42,19 @@ async function getResults(evt) {
     //get the JSON data
     let responseData = await response.json()
    
+    //display the results
     displayResults(responseData)
-     //unhide load more btn
 
+     //unhide load more btn
      loadMoreBtnElement.classList.remove('hidden')
 }
 
 function displayResults(data) {
-   console.log(data)
-   console.log(giphySectionElem)
+  
     data.data.forEach(gif => {
         giphySectionElem.innerHTML += `<div class = "giphy_img"> <img src = "${gif.images.original.url}"> <p class = "gif_title">${gif.title}<p></div>`
     });
+
     //store the search key incase the user wants to load more results
     backupSearchKey = searchKey
 
@@ -77,9 +77,7 @@ function handleFormSubmission (evt) {
     loadMore = false
     //hide the show more btn element
     loadMoreBtnElement.classList.add('hidden')
-    //get search key
     getResults(evt)
-    
 }
 
 function showMore() {
@@ -90,3 +88,22 @@ function showMore() {
     getResults()
 }
 
+async function generateRandomGifs() {
+    let randomAPIUrl = `https://api.giphy.com/v1/gifs/random?api_key=${api_key}&rating=${rating}`
+    console.log(randomAPIUrl)
+    let response = await fetch(randomAPIUrl)
+    let responseData = await response.json()
+        giphySectionElem.innerHTML += `<div class = "giphy_img"> <img src = "${responseData.data.images.original.url}"> <p class = "gif_title">${responseData.data.title}<p></div>`
+
+}
+
+window.onload = async function () {
+    //load trending gifs first
+    let trendingAPIUrl = `https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&rating=${rating}&offset=${offset}&limit=18`
+    console.log(trendingAPIUrl)
+    let response = await fetch(trendingAPIUrl)
+    let responseData = await response.json()
+    responseData.data.forEach(gif => {
+        giphySectionElem.innerHTML += `<div class = "giphy_img"> <img src = "${gif.images.original.url}"> <p class = "gif_title">${gif.title}<p></div>`
+    });
+}

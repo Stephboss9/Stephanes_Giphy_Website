@@ -49,8 +49,8 @@ color: rgb(255, 195, 42);
 .giphy_img {
     flex: 0 1 25%;
     border-color: #F5F5F5;
-    background: rgb(247, 161, 13);
-    padding: 10px;
+    background: #333;
+    padding: 2px;
     text-align: center;
     border-radius: 20px;
     transition: transform 200ms ease-in-out; 
@@ -58,8 +58,8 @@ color: rgb(255, 195, 42);
 }
 
 .giphy_img img {
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 300px;
 }
 .giphy_img:hover {
     transform: scale(1.1);
