@@ -1,0 +1,101 @@
+* {
+    padding: 0;
+    margin: 0;
+    border-width: 0;
+}
+
+body {
+    background: #333;
+    line-height: 2em;
+}
+
+/*
+intro section page styling
+*/
+.intro_section {
+    width: 100%;
+}
+
+
+#Title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: 'Fredoka One', cursive;
+color: rgb(255, 195, 42);
+}
+#Title, form{
+    text-align: center;
+}
+
+
+#Gname {
+    padding: 5px;
+    margin-right: 10px;
+}
+#clicker {
+    padding: 5px;
+    border-radius: 20px;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+}
+
+#giphy_section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.giphy_img {
+    flex: 0 1 25%;
+    border-color: #F5F5F5;
+    background: rgb(247, 161, 13);
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    transition: transform 200ms ease-in-out; 
+    margin-bottom: 30px;
+}
+
+.giphy_img img {
+    width: 100%;
+    height: 100%;
+}
+.giphy_img:hover {
+    transform: scale(1.1);
+}
+.gif_title {
+    color: white;
+    position:absolute ;
+}
+
+.hidden {
+    display:none;
+}
+
+.button {
+    text-align: center;
+    margin-bottom: 30px; 
+    margin-top: 10px;
+}
+.show_more_btn {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 200ms ease-in-out; 
+}
+
+.success {
+   background-color: black;
+    color: white;
+}
+
+.success:hover {
+    background-color: rgb(255, 195, 42);
+    color: white;
+    transform: scale(1.1);
+}
+
