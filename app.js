@@ -99,7 +99,7 @@ async function generateRandomGifs() {
 
 window.onload = async function () {
     //load trending gifs first
-    let trendingAPIUrl = `https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&rating=${rating}&offset=${offset}&limit=18`
+    let trendingAPIUrl = `https://api.giphy.com/v1/gifs/trending?api_key=${api_key}&rating=${rating}&offset=${offset}`
     console.log(trendingAPIUrl)
     let response = await fetch(trendingAPIUrl)
     let responseData = await response.json()

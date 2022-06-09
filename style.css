@@ -43,26 +43,32 @@ color: rgb(255, 195, 42);
 #giphy_section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .giphy_img {
-    flex: 0 1 25%;
-    border-color: #F5F5F5;
-    background: #333;
-    padding: 2px;
+    flex: 0 1 22%;
     text-align: center;
     border-radius: 20px;
-    transition: transform 200ms ease-in-out; 
     margin-bottom: 30px;
+    
 }
 
 .giphy_img img {
     width: 400px;
     height: 300px;
+    transition: transform 200ms ease-in-out; 
+    border-radius: 20px;
+
+
 }
-.giphy_img:hover {
+
+.giphy_img img:hover {
     transform: scale(1.1);
+    background: rgb(218, 218, 218);
+    border: 3px solid white;
+    border-radius: 20px;
+
 }
 .gif_title {
     color: white;
